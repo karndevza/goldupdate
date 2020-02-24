@@ -15,7 +15,6 @@ function file_get_contents_curl($url) {
 
     $data = curl_exec($ch);
     curl_close($ch);
-
     return $data;
 }
 
@@ -40,7 +39,7 @@ $rowData = array();
        $doms->clear();
        unset($doms);       
        
-      // print_r($rowData);
+           // print_r($rowData);
 
         $myArr = array();
         $myArrx =  array();
@@ -58,8 +57,7 @@ $rowData = array();
         for ($i = 0; $i < count($rowData); $i++) {
         
           if($i>1){
-            $v = 0;
-        
+            $v = 0;        
              $ai =  array(   $decs[0] =>  $rowData[$i][0],
                              $decs[1] =>  $rowData[$i][1],
                              $decs[2] =>  $rowData[$i][2],
@@ -70,14 +68,12 @@ $rowData = array();
                              $decs[7] =>  $rowData[$i][7],
                              $decs[8] =>  $rowData[$i][8] );
                 
-              array_push($data,$ai);
-            
-             $v++;
-            
+              array_push($data,$ai);            
+             $v++;            
           }
         }      
    
-
+      print_r($data);
       if(empty($data)){ 
         array_push($rel,$astatus_fail);            
       }else{
@@ -85,5 +81,4 @@ $rowData = array();
         array_push($rel,$data);
       }               
         echo json_encode($rel); 
-
 ?>
