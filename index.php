@@ -83,7 +83,11 @@ $rowData = array();
       }else{
         array_push($rel,$astatus_ok);
         array_push($rel,$data);
-      }               
-        echo json_encode($rel); 
+
+        $fp = fopen('gold.json', 'w');
+        fwrite($fp, json_encode($rel));
+        fclose($fp);
+      }      
+        echo json_encode($rel);    
 
 ?>
